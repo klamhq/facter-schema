@@ -1,0 +1,47 @@
+name: release
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  build_artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bufbuild/buf-setup-action@v1
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.24.x' }
+      - run: |
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install github.com/twitchtv/twirp/protoc-gen-twirp@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH
+      # 1) Descriptor set (FileDescriptorSet binaire) -> pratique pour les consommateurs
+      - name: Build descriptor set
+        run: |
+          mkdir -p dist
+          buf build -o dist/facter-schema-${{ github.ref_name }}.bin
+
+      # 2) Archive des sources .proto
+      - name: Archive proto sources
+        run: tar czf dist/facter-schema-proto-${{ github.ref_name }}.tar.gz proto/
+
+      # 3) Génération et packaging du code
+      - name: Generate code (optional)
+        run: |
+          buf generate
+          if [ -d proto ]; then tar czf dist/facter-schema-gen-${{ github.ref_name }}.tar.gz proto/rpc/facter/v1/*.go; fi
+
+      # 4) Crée la Release GitHub + attache les artefacts
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/facter-schema-${{ github.ref_name }}.bin
+            dist/facter-schema-proto-${{ github.ref_name }}.tar.gz
+            dist/facter-schema-gen-${{ github.ref_name }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
