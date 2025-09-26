@@ -12,7 +12,7 @@ upgrade:
 
 doc:
 	# Auto-generate doc
-	protoc --doc_out=. --doc_opt=markdown,schema.md proto/rpc/facter/v1/service.proto
+	protoc --doc_out=. --doc_opt=markdown,schema.md proto/klamhq/rpc/facter/v1/service.proto
 
 format:
 	/usr/local/bin/buf format -w
