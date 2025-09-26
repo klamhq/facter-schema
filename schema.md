@@ -3,77 +3,66 @@
 
 ## Table of Contents
 
-- [proto/rpc/facter/v1/service.proto](#proto_rpc_facter_v1_service-proto)
-    - [Application](#rpc-facter-v1-Application)
-    - [Cfg](#rpc-facter-v1-Cfg)
-    - [ComplianceReport](#rpc-facter-v1-ComplianceReport)
-    - [ConnectionState](#rpc-facter-v1-ConnectionState)
-    - [ContainerMounts](#rpc-facter-v1-ContainerMounts)
-    - [ContainerNetworks](#rpc-facter-v1-ContainerNetworks)
-    - [ContainerPorts](#rpc-facter-v1-ContainerPorts)
-    - [Containers](#rpc-facter-v1-Containers)
-    - [ContainersImages](#rpc-facter-v1-ContainersImages)
-    - [Cpu](#rpc-facter-v1-Cpu)
-    - [Disk](#rpc-facter-v1-Disk)
-    - [DiskPartition](#rpc-facter-v1-DiskPartition)
-    - [DnsInfo](#rpc-facter-v1-DnsInfo)
-    - [Docker](#rpc-facter-v1-Docker)
-    - [DockerNetworks](#rpc-facter-v1-DockerNetworks)
-    - [ExternalIp](#rpc-facter-v1-ExternalIp)
-    - [Firewall](#rpc-facter-v1-Firewall)
-    - [FirewallRule](#rpc-facter-v1-FirewallRule)
-    - [GeoIpInfo](#rpc-facter-v1-GeoIpInfo)
-    - [Hardware](#rpc-facter-v1-Hardware)
-    - [HostDeltaInventory](#rpc-facter-v1-HostDeltaInventory)
-    - [HostInventory](#rpc-facter-v1-HostInventory)
-    - [Identifier](#rpc-facter-v1-Identifier)
-    - [Interface](#rpc-facter-v1-Interface)
-    - [InventoryRequest](#rpc-facter-v1-InventoryRequest)
-    - [InventoryResponse](#rpc-facter-v1-InventoryResponse)
-    - [Ip](#rpc-facter-v1-Ip)
-    - [IpPort](#rpc-facter-v1-IpPort)
-    - [Kernel](#rpc-facter-v1-Kernel)
-    - [KnownHost](#rpc-facter-v1-KnownHost)
-    - [Logger](#rpc-facter-v1-Logger)
-    - [MatchedVuln](#rpc-facter-v1-MatchedVuln)
-    - [Memory](#rpc-facter-v1-Memory)
-    - [Metadata](#rpc-facter-v1-Metadata)
-    - [Network](#rpc-facter-v1-Network)
-    - [Os](#rpc-facter-v1-Os)
-    - [Package](#rpc-facter-v1-Package)
-    - [PackageVulnMatch](#rpc-facter-v1-PackageVulnMatch)
-    - [Platform](#rpc-facter-v1-Platform)
-    - [Process](#rpc-facter-v1-Process)
-    - [Proxy](#rpc-facter-v1-Proxy)
-    - [RuleCheckResult](#rpc-facter-v1-RuleCheckResult)
-    - [Score](#rpc-facter-v1-Score)
-    - [Session](#rpc-facter-v1-Session)
-    - [SshKeyAccess](#rpc-facter-v1-SshKeyAccess)
-    - [SshKeyInfo](#rpc-facter-v1-SshKeyInfo)
-    - [SshKeyOptions](#rpc-facter-v1-SshKeyOptions)
-    - [SystemdService](#rpc-facter-v1-SystemdService)
-    - [User](#rpc-facter-v1-User)
-    - [Virtualization](#rpc-facter-v1-Virtualization)
-    - [VulnerabilityReport](#rpc-facter-v1-VulnerabilityReport)
+- [proto/klamhq/rpc/facter/v1/service.proto](#proto_klamhq_rpc_facter_v1_service-proto)
+    - [Application](#klamhq-rpc-facter-v1-Application)
+    - [ConnectionState](#klamhq-rpc-facter-v1-ConnectionState)
+    - [ContainerMounts](#klamhq-rpc-facter-v1-ContainerMounts)
+    - [ContainerNetworks](#klamhq-rpc-facter-v1-ContainerNetworks)
+    - [ContainerPorts](#klamhq-rpc-facter-v1-ContainerPorts)
+    - [Containers](#klamhq-rpc-facter-v1-Containers)
+    - [ContainersImages](#klamhq-rpc-facter-v1-ContainersImages)
+    - [Cpu](#klamhq-rpc-facter-v1-Cpu)
+    - [Disk](#klamhq-rpc-facter-v1-Disk)
+    - [DiskPartition](#klamhq-rpc-facter-v1-DiskPartition)
+    - [DnsInfo](#klamhq-rpc-facter-v1-DnsInfo)
+    - [Docker](#klamhq-rpc-facter-v1-Docker)
+    - [DockerNetworks](#klamhq-rpc-facter-v1-DockerNetworks)
+    - [ExternalIp](#klamhq-rpc-facter-v1-ExternalIp)
+    - [Firewall](#klamhq-rpc-facter-v1-Firewall)
+    - [FirewallRule](#klamhq-rpc-facter-v1-FirewallRule)
+    - [GeoIpInfo](#klamhq-rpc-facter-v1-GeoIpInfo)
+    - [Hardware](#klamhq-rpc-facter-v1-Hardware)
+    - [HostDeltaInventory](#klamhq-rpc-facter-v1-HostDeltaInventory)
+    - [HostInventory](#klamhq-rpc-facter-v1-HostInventory)
+    - [Identifier](#klamhq-rpc-facter-v1-Identifier)
+    - [Interface](#klamhq-rpc-facter-v1-Interface)
+    - [InventoryRequest](#klamhq-rpc-facter-v1-InventoryRequest)
+    - [Ip](#klamhq-rpc-facter-v1-Ip)
+    - [IpPort](#klamhq-rpc-facter-v1-IpPort)
+    - [Kernel](#klamhq-rpc-facter-v1-Kernel)
+    - [KnownHost](#klamhq-rpc-facter-v1-KnownHost)
+    - [Memory](#klamhq-rpc-facter-v1-Memory)
+    - [Metadata](#klamhq-rpc-facter-v1-Metadata)
+    - [Network](#klamhq-rpc-facter-v1-Network)
+    - [Os](#klamhq-rpc-facter-v1-Os)
+    - [Package](#klamhq-rpc-facter-v1-Package)
+    - [Platform](#klamhq-rpc-facter-v1-Platform)
+    - [Process](#klamhq-rpc-facter-v1-Process)
+    - [Proxy](#klamhq-rpc-facter-v1-Proxy)
+    - [Session](#klamhq-rpc-facter-v1-Session)
+    - [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess)
+    - [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo)
+    - [SshKeyOptions](#klamhq-rpc-facter-v1-SshKeyOptions)
+    - [SystemdService](#klamhq-rpc-facter-v1-SystemdService)
+    - [User](#klamhq-rpc-facter-v1-User)
+    - [Virtualization](#klamhq-rpc-facter-v1-Virtualization)
   
-    - [IPVersion](#rpc-facter-v1-IPVersion)
-    - [Protocol](#rpc-facter-v1-Protocol)
-    - [State](#rpc-facter-v1-State)
-  
-    - [FactGrpcService](#rpc-facter-v1-FactGrpcService)
+    - [IPVersion](#klamhq-rpc-facter-v1-IPVersion)
+    - [Protocol](#klamhq-rpc-facter-v1-Protocol)
+    - [State](#klamhq-rpc-facter-v1-State)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="proto_rpc_facter_v1_service-proto"></a>
+<a name="proto_klamhq_rpc_facter_v1_service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## proto/rpc/facter/v1/service.proto
+## proto/klamhq/rpc/facter/v1/service.proto
 
 
 
-<a name="rpc-facter-v1-Application"></a>
+<a name="klamhq-rpc-facter-v1-Application"></a>
 
 ### Application
 
@@ -81,42 +70,14 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| docker | [Docker](#rpc-facter-v1-Docker) |  |  |
+| docker | [Docker](#klamhq-rpc-facter-v1-Docker) |  |  |
 
 
 
 
 
 
-<a name="rpc-facter-v1-Cfg"></a>
-
-### Cfg
-Configuration message (reserved).
-
-
-
-
-
-
-<a name="rpc-facter-v1-ComplianceReport"></a>
-
-### ComplianceReport
-Represents a compliance report.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| score | [Score](#rpc-facter-v1-Score) |  | Overall compliance score. |
-| profile | [string](#string) |  | Compliance profile used. |
-| rule_results | [RuleCheckResult](#rpc-facter-v1-RuleCheckResult) | repeated | List of rule check results. |
-| updated_at | [string](#string) |  | Last update date of the compliance information. |
-
-
-
-
-
-
-<a name="rpc-facter-v1-ConnectionState"></a>
+<a name="klamhq-rpc-facter-v1-ConnectionState"></a>
 
 ### ConnectionState
 Connection state.
@@ -124,18 +85,18 @@ Connection state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| protocol | [Protocol](#rpc-facter-v1-Protocol) |  | Connection protocol. |
-| state | [State](#rpc-facter-v1-State) |  | Connection state. |
-| process | [Process](#rpc-facter-v1-Process) |  | Process associated with the connection. |
-| local | [IpPort](#rpc-facter-v1-IpPort) |  | Local IP and port. |
-| remote | [IpPort](#rpc-facter-v1-IpPort) |  | Remote IP and port. |
+| protocol | [Protocol](#klamhq-rpc-facter-v1-Protocol) |  | Connection protocol. |
+| state | [State](#klamhq-rpc-facter-v1-State) |  | Connection state. |
+| process | [Process](#klamhq-rpc-facter-v1-Process) |  | Process associated with the connection. |
+| local | [IpPort](#klamhq-rpc-facter-v1-IpPort) |  | Local IP and port. |
+| remote | [IpPort](#klamhq-rpc-facter-v1-IpPort) |  | Remote IP and port. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-ContainerMounts"></a>
+<a name="klamhq-rpc-facter-v1-ContainerMounts"></a>
 
 ### ContainerMounts
 
@@ -157,7 +118,7 @@ Connection state.
 
 
 
-<a name="rpc-facter-v1-ContainerNetworks"></a>
+<a name="klamhq-rpc-facter-v1-ContainerNetworks"></a>
 
 ### ContainerNetworks
 
@@ -177,7 +138,7 @@ Connection state.
 
 
 
-<a name="rpc-facter-v1-ContainerPorts"></a>
+<a name="klamhq-rpc-facter-v1-ContainerPorts"></a>
 
 ### ContainerPorts
 
@@ -195,7 +156,7 @@ Connection state.
 
 
 
-<a name="rpc-facter-v1-Containers"></a>
+<a name="klamhq-rpc-facter-v1-Containers"></a>
 
 ### Containers
 
@@ -208,11 +169,11 @@ Connection state.
 | image | [string](#string) |  |  |
 | command | [string](#string) |  |  |
 | size_root_fs | [int64](#int64) |  |  |
-| mounts | [ContainerMounts](#rpc-facter-v1-ContainerMounts) | repeated |  |
+| mounts | [ContainerMounts](#klamhq-rpc-facter-v1-ContainerMounts) | repeated |  |
 | state | [string](#string) |  |  |
 | status | [string](#string) |  |  |
-| ports | [ContainerPorts](#rpc-facter-v1-ContainerPorts) | repeated |  |
-| networks | [ContainerNetworks](#rpc-facter-v1-ContainerNetworks) | repeated |  |
+| ports | [ContainerPorts](#klamhq-rpc-facter-v1-ContainerPorts) | repeated |  |
+| networks | [ContainerNetworks](#klamhq-rpc-facter-v1-ContainerNetworks) | repeated |  |
 | size_rw | [int64](#int64) |  |  |
 | created | [int64](#int64) |  |  |
 | image_id | [string](#string) |  | Image ID of the container. |
@@ -224,7 +185,7 @@ Connection state.
 
 
 
-<a name="rpc-facter-v1-ContainersImages"></a>
+<a name="klamhq-rpc-facter-v1-ContainersImages"></a>
 
 ### ContainersImages
 
@@ -247,7 +208,7 @@ Connection state.
 
 
 
-<a name="rpc-facter-v1-Cpu"></a>
+<a name="klamhq-rpc-facter-v1-Cpu"></a>
 
 ### Cpu
 CPU details.
@@ -264,7 +225,7 @@ CPU details.
 
 
 
-<a name="rpc-facter-v1-Disk"></a>
+<a name="klamhq-rpc-facter-v1-Disk"></a>
 
 ### Disk
 Disk information.
@@ -274,14 +235,14 @@ Disk information.
 | ----- | ---- | ----- | ----------- |
 | uuid | [string](#string) |  | Disk UUID. |
 | device | [string](#string) |  | Device name. |
-| partitions | [DiskPartition](#rpc-facter-v1-DiskPartition) | repeated | List of disk partitions. |
+| partitions | [DiskPartition](#klamhq-rpc-facter-v1-DiskPartition) | repeated | List of disk partitions. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-DiskPartition"></a>
+<a name="klamhq-rpc-facter-v1-DiskPartition"></a>
 
 ### DiskPartition
 Disk partition details.
@@ -301,7 +262,7 @@ Disk partition details.
 
 
 
-<a name="rpc-facter-v1-DnsInfo"></a>
+<a name="klamhq-rpc-facter-v1-DnsInfo"></a>
 
 ### DnsInfo
 DNS information.
@@ -318,7 +279,7 @@ DNS information.
 
 
 
-<a name="rpc-facter-v1-Docker"></a>
+<a name="klamhq-rpc-facter-v1-Docker"></a>
 
 ### Docker
 
@@ -326,16 +287,16 @@ DNS information.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| images | [ContainersImages](#rpc-facter-v1-ContainersImages) | repeated |  |
-| containers | [Containers](#rpc-facter-v1-Containers) | repeated |  |
-| networks | [DockerNetworks](#rpc-facter-v1-DockerNetworks) | repeated |  |
+| images | [ContainersImages](#klamhq-rpc-facter-v1-ContainersImages) | repeated |  |
+| containers | [Containers](#klamhq-rpc-facter-v1-Containers) | repeated |  |
+| networks | [DockerNetworks](#klamhq-rpc-facter-v1-DockerNetworks) | repeated |  |
 
 
 
 
 
 
-<a name="rpc-facter-v1-DockerNetworks"></a>
+<a name="klamhq-rpc-facter-v1-DockerNetworks"></a>
 
 ### DockerNetworks
 
@@ -355,7 +316,7 @@ DNS information.
 
 
 
-<a name="rpc-facter-v1-ExternalIp"></a>
+<a name="klamhq-rpc-facter-v1-ExternalIp"></a>
 
 ### ExternalIp
 External IP information.
@@ -371,7 +332,7 @@ External IP information.
 
 
 
-<a name="rpc-facter-v1-Firewall"></a>
+<a name="klamhq-rpc-facter-v1-Firewall"></a>
 
 ### Firewall
 
@@ -380,14 +341,14 @@ External IP information.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | version | [string](#string) |  |  |
-| rules | [FirewallRule](#rpc-facter-v1-FirewallRule) | repeated |  |
+| rules | [FirewallRule](#klamhq-rpc-facter-v1-FirewallRule) | repeated |  |
 
 
 
 
 
 
-<a name="rpc-facter-v1-FirewallRule"></a>
+<a name="klamhq-rpc-facter-v1-FirewallRule"></a>
 
 ### FirewallRule
 
@@ -438,7 +399,7 @@ External IP information.
 
 
 
-<a name="rpc-facter-v1-GeoIpInfo"></a>
+<a name="klamhq-rpc-facter-v1-GeoIpInfo"></a>
 
 ### GeoIpInfo
 Geolocation information.
@@ -455,7 +416,7 @@ Geolocation information.
 
 
 
-<a name="rpc-facter-v1-Hardware"></a>
+<a name="klamhq-rpc-facter-v1-Hardware"></a>
 
 ### Hardware
 Hardware information.
@@ -463,16 +424,16 @@ Hardware information.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| cpu | [Cpu](#rpc-facter-v1-Cpu) |  | CPU information. |
-| memory | [Memory](#rpc-facter-v1-Memory) |  | Memory information. |
-| disk | [Disk](#rpc-facter-v1-Disk) | repeated | List of disks. |
+| cpu | [Cpu](#klamhq-rpc-facter-v1-Cpu) |  | CPU information. |
+| memory | [Memory](#klamhq-rpc-facter-v1-Memory) |  | Memory information. |
+| disk | [Disk](#klamhq-rpc-facter-v1-Disk) | repeated | List of disks. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-HostDeltaInventory"></a>
+<a name="klamhq-rpc-facter-v1-HostDeltaInventory"></a>
 
 ### HostDeltaInventory
 
@@ -481,32 +442,32 @@ Hardware information.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | hostname | [string](#string) |  |  |
-| packages_added | [Package](#rpc-facter-v1-Package) | repeated | Packages added. |
-| packages_removed | [Package](#rpc-facter-v1-Package) | repeated | Packages removed. |
-| users_added | [User](#rpc-facter-v1-User) | repeated | Users added. |
-| users_removed | [User](#rpc-facter-v1-User) | repeated | Users removed. |
-| applications_added | [Application](#rpc-facter-v1-Application) | repeated | Applications added. |
-| applications_removed | [Application](#rpc-facter-v1-Application) | repeated | Applications removed. |
-| systemdservices_added | [SystemdService](#rpc-facter-v1-SystemdService) | repeated | Systemd services added. |
-| systemdservices_removed | [SystemdService](#rpc-facter-v1-SystemdService) | repeated | Systemd services removed. |
-| knownhosts_added | [KnownHost](#rpc-facter-v1-KnownHost) | repeated | Known hosts added. |
-| knownhosts_removed | [KnownHost](#rpc-facter-v1-KnownHost) | repeated | Known hosts removed. |
-| sshkeyaccess_added | [SshKeyAccess](#rpc-facter-v1-SshKeyAccess) | repeated | SSH key access added. |
-| sshkeyaccess_removed | [SshKeyAccess](#rpc-facter-v1-SshKeyAccess) | repeated | SSH key access removed. |
+| packages_added | [Package](#klamhq-rpc-facter-v1-Package) | repeated | Packages added. |
+| packages_removed | [Package](#klamhq-rpc-facter-v1-Package) | repeated | Packages removed. |
+| users_added | [User](#klamhq-rpc-facter-v1-User) | repeated | Users added. |
+| users_removed | [User](#klamhq-rpc-facter-v1-User) | repeated | Users removed. |
+| applications_added | [Application](#klamhq-rpc-facter-v1-Application) | repeated | Applications added. |
+| applications_removed | [Application](#klamhq-rpc-facter-v1-Application) | repeated | Applications removed. |
+| systemdservices_added | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd services added. |
+| systemdservices_removed | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd services removed. |
+| knownhosts_added | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts added. |
+| knownhosts_removed | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts removed. |
+| sshkeyaccess_added | [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess) | repeated | SSH key access added. |
+| sshkeyaccess_removed | [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess) | repeated | SSH key access removed. |
 | updated_at | [string](#string) |  | Last update date of the delta inventory. |
-| sshkeyinfo_added | [SshKeyInfo](#rpc-facter-v1-SshKeyInfo) | repeated | SSH key info added. |
-| sshkeyinfo_removed | [SshKeyInfo](#rpc-facter-v1-SshKeyInfo) | repeated | SSH key info removed. |
-| platform | [Platform](#rpc-facter-v1-Platform) |  | Platform details. |
-| network | [Network](#rpc-facter-v1-Network) |  | Network information. |
-| processes_added | [Process](#rpc-facter-v1-Process) | repeated | List of processes running on the host. |
-| processes_removed | [Process](#rpc-facter-v1-Process) | repeated | List of processes removed from the host. |
+| sshkeyinfo_added | [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo) | repeated | SSH key info added. |
+| sshkeyinfo_removed | [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo) | repeated | SSH key info removed. |
+| platform | [Platform](#klamhq-rpc-facter-v1-Platform) |  | Platform details. |
+| network | [Network](#klamhq-rpc-facter-v1-Network) |  | Network information. |
+| processes_added | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes running on the host. |
+| processes_removed | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes removed from the host. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-HostInventory"></a>
+<a name="klamhq-rpc-facter-v1-HostInventory"></a>
 
 ### HostInventory
 Represents the inventory of a host.
@@ -515,20 +476,18 @@ Represents the inventory of a host.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | hostname | [string](#string) |  | Hostname of the host. |
-| packages | [Package](#rpc-facter-v1-Package) | repeated | List of installed packages. |
-| network | [Network](#rpc-facter-v1-Network) |  | Network information. |
-| platform | [Platform](#rpc-facter-v1-Platform) |  | Platform details. |
-| users | [User](#rpc-facter-v1-User) | repeated | List of users. |
-| metadata | [Metadata](#rpc-facter-v1-Metadata) |  | Additional metadata. |
-| identifier | [Identifier](#rpc-facter-v1-Identifier) |  | Unique identifier of the host. |
-| ssh_key_info | [SshKeyInfo](#rpc-facter-v1-SshKeyInfo) | repeated | SSH key information. |
-| application | [Application](#rpc-facter-v1-Application) | repeated | Application information. |
-| vulnerability_report | [VulnerabilityReport](#rpc-facter-v1-VulnerabilityReport) |  | Match reports of vulnerabilities and packages. |
-| ssh_key_access | [SshKeyAccess](#rpc-facter-v1-SshKeyAccess) | repeated | SSH key access details. |
-| systemd_service | [SystemdService](#rpc-facter-v1-SystemdService) | repeated | Systemd service information. |
-| known_host | [KnownHost](#rpc-facter-v1-KnownHost) | repeated | Known hosts information. |
-| processes | [Process](#rpc-facter-v1-Process) | repeated | List of processes running on the host. |
-| compliance_report | [ComplianceReport](#rpc-facter-v1-ComplianceReport) |  | Compliance report. |
+| packages | [Package](#klamhq-rpc-facter-v1-Package) | repeated | List of installed packages. |
+| network | [Network](#klamhq-rpc-facter-v1-Network) |  | Network information. |
+| platform | [Platform](#klamhq-rpc-facter-v1-Platform) |  | Platform details. |
+| users | [User](#klamhq-rpc-facter-v1-User) | repeated | List of users. |
+| metadata | [Metadata](#klamhq-rpc-facter-v1-Metadata) |  | Additional metadata. |
+| identifier | [Identifier](#klamhq-rpc-facter-v1-Identifier) |  | Unique identifier of the host. |
+| ssh_key_info | [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo) | repeated | SSH key information. |
+| application | [Application](#klamhq-rpc-facter-v1-Application) | repeated | Application information. |
+| ssh_key_access | [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess) | repeated | SSH key access details. |
+| systemd_service | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd service information. |
+| known_host | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts information. |
+| processes | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes running on the host. |
 | created_at | [string](#string) |  | Creation date of the inventory. |
 
 
@@ -536,7 +495,7 @@ Represents the inventory of a host.
 
 
 
-<a name="rpc-facter-v1-Identifier"></a>
+<a name="klamhq-rpc-facter-v1-Identifier"></a>
 
 ### Identifier
 Identifier for a machine.
@@ -552,7 +511,7 @@ Identifier for a machine.
 
 
 
-<a name="rpc-facter-v1-Interface"></a>
+<a name="klamhq-rpc-facter-v1-Interface"></a>
 
 ### Interface
 Network interface.
@@ -561,7 +520,7 @@ Network interface.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  | Interface name. |
-| ips | [Ip](#rpc-facter-v1-Ip) | repeated | List of IP addresses. |
+| ips | [Ip](#klamhq-rpc-facter-v1-Ip) | repeated | List of IP addresses. |
 | hardware_addr | [string](#string) |  | Hardware (MAC) address. |
 
 
@@ -569,7 +528,7 @@ Network interface.
 
 
 
-<a name="rpc-facter-v1-InventoryRequest"></a>
+<a name="klamhq-rpc-facter-v1-InventoryRequest"></a>
 
 ### InventoryRequest
 Represents the inventory of a host, which can be either full or delta.
@@ -577,30 +536,15 @@ Represents the inventory of a host, which can be either full or delta.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| full | [HostInventory](#rpc-facter-v1-HostInventory) |  | Full inventory of the host. |
-| delta | [HostDeltaInventory](#rpc-facter-v1-HostDeltaInventory) |  | Delta inventory of the host. |
+| full | [HostInventory](#klamhq-rpc-facter-v1-HostInventory) |  | Full inventory of the host. |
+| delta | [HostDeltaInventory](#klamhq-rpc-facter-v1-HostDeltaInventory) |  | Delta inventory of the host. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-InventoryResponse"></a>
-
-### InventoryResponse
-Response message for gRPC services.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| message | [string](#string) |  | Response message text. |
-
-
-
-
-
-
-<a name="rpc-facter-v1-Ip"></a>
+<a name="klamhq-rpc-facter-v1-Ip"></a>
 
 ### Ip
 IP address details.
@@ -617,7 +561,7 @@ IP address details.
 
 
 
-<a name="rpc-facter-v1-IpPort"></a>
+<a name="klamhq-rpc-facter-v1-IpPort"></a>
 
 ### IpPort
 Association of IP and port.
@@ -625,7 +569,7 @@ Association of IP and port.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ip | [Ip](#rpc-facter-v1-Ip) |  | IP address. |
+| ip | [Ip](#klamhq-rpc-facter-v1-Ip) |  | IP address. |
 | port | [uint32](#uint32) |  | Port number. |
 
 
@@ -633,7 +577,7 @@ Association of IP and port.
 
 
 
-<a name="rpc-facter-v1-Kernel"></a>
+<a name="klamhq-rpc-facter-v1-Kernel"></a>
 
 ### Kernel
 
@@ -648,7 +592,7 @@ Association of IP and port.
 
 
 
-<a name="rpc-facter-v1-KnownHost"></a>
+<a name="klamhq-rpc-facter-v1-KnownHost"></a>
 
 ### KnownHost
 Known hosts information.
@@ -667,36 +611,7 @@ Known hosts information.
 
 
 
-<a name="rpc-facter-v1-Logger"></a>
-
-### Logger
-Empty logger message (reserved).
-
-
-
-
-
-
-<a name="rpc-facter-v1-MatchedVuln"></a>
-
-### MatchedVuln
-Vulnerability details.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| vulnerability_id | [string](#string) |  | Vulnerability ID. |
-| severity | [string](#string) |  | Vulnerability severity. |
-| title | [string](#string) |  | Vulnerability title. |
-| description | [string](#string) |  | Vulnerability description. |
-| fixed_version | [string](#string) |  | Version where the vulnerability is fixed. |
-
-
-
-
-
-
-<a name="rpc-facter-v1-Memory"></a>
+<a name="klamhq-rpc-facter-v1-Memory"></a>
 
 ### Memory
 Memory details.
@@ -713,7 +628,7 @@ Memory details.
 
 
 
-<a name="rpc-facter-v1-Metadata"></a>
+<a name="klamhq-rpc-facter-v1-Metadata"></a>
 
 ### Metadata
 Additional metadata information.
@@ -730,7 +645,7 @@ Additional metadata information.
 
 
 
-<a name="rpc-facter-v1-Network"></a>
+<a name="klamhq-rpc-facter-v1-Network"></a>
 
 ### Network
 Network information.
@@ -738,21 +653,21 @@ Network information.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| interfaces | [Interface](#rpc-facter-v1-Interface) | repeated | Network interfaces. |
-| ip | [Ip](#rpc-facter-v1-Ip) |  | Local IP address. |
-| external_ip | [ExternalIp](#rpc-facter-v1-ExternalIp) |  | External IP information. |
-| connections | [ConnectionState](#rpc-facter-v1-ConnectionState) | repeated | Network connections. |
-| proxy | [Proxy](#rpc-facter-v1-Proxy) |  | Proxy settings. |
-| firewall | [Firewall](#rpc-facter-v1-Firewall) |  | Firewall information. |
-| dns_info | [DnsInfo](#rpc-facter-v1-DnsInfo) |  | DNS information. |
-| geoip_info | [GeoIpInfo](#rpc-facter-v1-GeoIpInfo) |  | Geolocation information. |
+| interfaces | [Interface](#klamhq-rpc-facter-v1-Interface) | repeated | Network interfaces. |
+| ip | [Ip](#klamhq-rpc-facter-v1-Ip) |  | Local IP address. |
+| external_ip | [ExternalIp](#klamhq-rpc-facter-v1-ExternalIp) |  | External IP information. |
+| connections | [ConnectionState](#klamhq-rpc-facter-v1-ConnectionState) | repeated | Network connections. |
+| proxy | [Proxy](#klamhq-rpc-facter-v1-Proxy) |  | Proxy settings. |
+| firewall | [Firewall](#klamhq-rpc-facter-v1-Firewall) |  | Firewall information. |
+| dns_info | [DnsInfo](#klamhq-rpc-facter-v1-DnsInfo) |  | DNS information. |
+| geoip_info | [GeoIpInfo](#klamhq-rpc-facter-v1-GeoIpInfo) |  | Geolocation information. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-Os"></a>
+<a name="klamhq-rpc-facter-v1-Os"></a>
 
 ### Os
 
@@ -769,7 +684,7 @@ Network information.
 
 
 
-<a name="rpc-facter-v1-Package"></a>
+<a name="klamhq-rpc-facter-v1-Package"></a>
 
 ### Package
 Package details.
@@ -789,25 +704,7 @@ Package details.
 
 
 
-<a name="rpc-facter-v1-PackageVulnMatch"></a>
-
-### PackageVulnMatch
-Package vulnerability match information.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| package_name | [string](#string) |  | Name of the vulnerable package. |
-| installed_version | [string](#string) |  | Installed version of the package. |
-| vulnerabilities | [MatchedVuln](#rpc-facter-v1-MatchedVuln) | repeated | List of matched vulnerabilities. |
-| matched | [bool](#bool) |  | Whether a match was found. |
-
-
-
-
-
-
-<a name="rpc-facter-v1-Platform"></a>
+<a name="klamhq-rpc-facter-v1-Platform"></a>
 
 ### Platform
 Platform information.
@@ -816,11 +713,11 @@ Platform information.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | init_system | [string](#string) |  | Init system used. |
-| kernel | [Kernel](#rpc-facter-v1-Kernel) |  | Kernel information. |
-| os | [Os](#rpc-facter-v1-Os) |  | Operating system details. |
-| virtualization | [Virtualization](#rpc-facter-v1-Virtualization) |  | Virtualization details. |
-| hardware | [Hardware](#rpc-facter-v1-Hardware) |  | Hardware information. |
-| identifier | [Identifier](#rpc-facter-v1-Identifier) |  | Host identifier. |
+| kernel | [Kernel](#klamhq-rpc-facter-v1-Kernel) |  | Kernel information. |
+| os | [Os](#klamhq-rpc-facter-v1-Os) |  | Operating system details. |
+| virtualization | [Virtualization](#klamhq-rpc-facter-v1-Virtualization) |  | Virtualization details. |
+| hardware | [Hardware](#klamhq-rpc-facter-v1-Hardware) |  | Hardware information. |
+| identifier | [Identifier](#klamhq-rpc-facter-v1-Identifier) |  | Host identifier. |
 | uptime | [uint64](#uint64) |  | Uptime of the host in seconds. |
 
 
@@ -828,7 +725,7 @@ Platform information.
 
 
 
-<a name="rpc-facter-v1-Process"></a>
+<a name="klamhq-rpc-facter-v1-Process"></a>
 
 ### Process
 Process information.
@@ -838,7 +735,7 @@ Process information.
 | ----- | ---- | ----- | ----------- |
 | pid | [int64](#int64) |  | Process ID. |
 | name | [string](#string) |  | Process name. |
-| package | [Package](#rpc-facter-v1-Package) |  | Associated package. |
+| package | [Package](#klamhq-rpc-facter-v1-Package) |  | Associated package. |
 | username | [string](#string) |  | User running the process. |
 | cmdline | [string](#string) |  | Command line used to start the process. |
 | terminal | [string](#string) |  | Terminal associated with the process. |
@@ -855,7 +752,7 @@ Process information.
 
 
 
-<a name="rpc-facter-v1-Proxy"></a>
+<a name="klamhq-rpc-facter-v1-Proxy"></a>
 
 ### Proxy
 Proxy settings.
@@ -863,51 +760,14 @@ Proxy settings.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ip | [Ip](#rpc-facter-v1-Ip) |  | Proxy IP. |
+| ip | [Ip](#klamhq-rpc-facter-v1-Ip) |  | Proxy IP. |
 
 
 
 
 
 
-<a name="rpc-facter-v1-RuleCheckResult"></a>
-
-### RuleCheckResult
-Represents the result of a rule check.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Unique identifier for the rule. |
-| severity | [string](#string) |  | Severity of the rule (e.g., low, medium, high). |
-| title | [string](#string) |  | Title of the rule. |
-| description | [string](#string) |  | Description of the rule. |
-| result | [string](#string) |  | Result of the rule check (e.g., pass, fail). |
-| fix | [string](#string) |  | Suggested fix for the rule, if applicable. |
-| updated_at | [string](#string) |  | Last update date of the rule check information. |
-
-
-
-
-
-
-<a name="rpc-facter-v1-Score"></a>
-
-### Score
-Represents a compliance score.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| maximum | [string](#string) |  | Maximum possible score. |
-| value | [string](#string) |  | Numerical score value. |
-
-
-
-
-
-
-<a name="rpc-facter-v1-Session"></a>
+<a name="klamhq-rpc-facter-v1-Session"></a>
 
 ### Session
 
@@ -925,7 +785,7 @@ Represents a compliance score.
 
 
 
-<a name="rpc-facter-v1-SshKeyAccess"></a>
+<a name="klamhq-rpc-facter-v1-SshKeyAccess"></a>
 
 ### SshKeyAccess
 SSH key access information.
@@ -942,7 +802,7 @@ SSH key access information.
 
 
 
-<a name="rpc-facter-v1-SshKeyInfo"></a>
+<a name="klamhq-rpc-facter-v1-SshKeyInfo"></a>
 
 ### SshKeyInfo
 SSH key information.
@@ -956,7 +816,7 @@ SSH key information.
 | comment | [string](#string) |  | Key comment. |
 | path | [string](#string) |  | Path to the key. |
 | name | [string](#string) |  | Name of the key. |
-| options | [SshKeyOptions](#rpc-facter-v1-SshKeyOptions) | repeated | SSH key options. |
+| options | [SshKeyOptions](#klamhq-rpc-facter-v1-SshKeyOptions) | repeated | SSH key options. |
 | from_authorized_keys | [bool](#bool) |  | Whether from authorized_keys. |
 | owner | [string](#string) |  | Key owner. |
 | updated_at | [string](#string) |  | Last update date of the SSH key information. |
@@ -966,7 +826,7 @@ SSH key information.
 
 
 
-<a name="rpc-facter-v1-SshKeyOptions"></a>
+<a name="klamhq-rpc-facter-v1-SshKeyOptions"></a>
 
 ### SshKeyOptions
 SSH key options.
@@ -981,7 +841,7 @@ SSH key options.
 
 
 
-<a name="rpc-facter-v1-SystemdService"></a>
+<a name="klamhq-rpc-facter-v1-SystemdService"></a>
 
 ### SystemdService
 Systemd service information.
@@ -1011,7 +871,7 @@ Systemd service information.
 
 
 
-<a name="rpc-facter-v1-User"></a>
+<a name="klamhq-rpc-facter-v1-User"></a>
 
 ### User
 User information.
@@ -1023,7 +883,7 @@ User information.
 | uid | [string](#string) |  | User ID. |
 | gid | [string](#string) |  | Group ID. |
 | home | [string](#string) |  | Home directory. |
-| sessions | [Session](#rpc-facter-v1-Session) | repeated | List of sessions. |
+| sessions | [Session](#klamhq-rpc-facter-v1-Session) | repeated | List of sessions. |
 | shell | [string](#string) |  | User shell. |
 | can_become_root | [bool](#bool) |  | Whether the user can become root. |
 | updated_at | [string](#string) |  | Last update date of the user information. |
@@ -1033,7 +893,7 @@ User information.
 
 
 
-<a name="rpc-facter-v1-Virtualization"></a>
+<a name="klamhq-rpc-facter-v1-Virtualization"></a>
 
 ### Virtualization
 Virtualization details.
@@ -1048,25 +908,10 @@ Virtualization details.
 
 
 
-
-<a name="rpc-facter-v1-VulnerabilityReport"></a>
-
-### VulnerabilityReport
-Report containing all vulnerability matches.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| matches | [PackageVulnMatch](#rpc-facter-v1-PackageVulnMatch) | repeated | List of package vulnerability matches. |
-
-
-
-
-
  
 
 
-<a name="rpc-facter-v1-IPVersion"></a>
+<a name="klamhq-rpc-facter-v1-IPVersion"></a>
 
 ### IPVersion
 IP version enum.
@@ -1079,7 +924,7 @@ IP version enum.
 
 
 
-<a name="rpc-facter-v1-Protocol"></a>
+<a name="klamhq-rpc-facter-v1-Protocol"></a>
 
 ### Protocol
 Connection protocol enum.
@@ -1091,7 +936,7 @@ Connection protocol enum.
 
 
 
-<a name="rpc-facter-v1-State"></a>
+<a name="klamhq-rpc-facter-v1-State"></a>
 
 ### State
 Connection state enum.
@@ -1106,16 +951,6 @@ Connection state enum.
  
 
  
-
-
-<a name="rpc-facter-v1-FactGrpcService"></a>
-
-### FactGrpcService
-gRPC service definition for sending host information.
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| Inventory | [InventoryRequest](#rpc-facter-v1-InventoryRequest) | [InventoryResponse](#rpc-facter-v1-InventoryResponse) | Sends the Inventory message and receives a Response. |
 
  
 

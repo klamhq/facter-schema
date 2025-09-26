@@ -1,6 +1,6 @@
 syntax = 'proto3';
 
-package rpc.facter.v1;
+package klamhq.rpc.facter.v1;
 
 option go_package = "github.com/klamhq/facter-schema/proto/rpc/facter/v1;facterv1";
 

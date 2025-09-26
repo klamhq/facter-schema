@@ -32,7 +32,7 @@ jobs:
       - name: Generate code (optional)
         run: |
           buf generate
-          if [ -d proto ]; then tar czf dist/facter-schema-gen-${{ github.ref_name }}.tar.gz proto/rpc/facter/v1/*.go; fi
+          if [ -d proto ]; then tar czf dist/facter-schema-gen-${{ github.ref_name }}.tar.gz proto/klamhq/rpc/facter/v1/*.go; fi
       
       # 4) Push vers Buf Schema Registry
       - name: Push to Buf Schema Registry
