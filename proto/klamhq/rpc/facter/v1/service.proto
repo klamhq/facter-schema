@@ -452,16 +452,3 @@ message FirewallRule {
   string param_icmp_type = 36;
   string value_icmp_type = 37;
 }
-
-/** Response message for gRPC services. */
-message InventoryResponse {
-  string message = 1; /** Response message text. */
-}
-
-/**
- * gRPC service definition for sending host information.
- */
-service FactGrpcService {
-  /** Sends the Inventory message and receives a Response. */
-  rpc Inventory(InventoryRequest) returns (InventoryResponse); /** Sends the Inventory message and receives a Response. */
-}
