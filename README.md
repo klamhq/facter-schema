@@ -1,8 +1,8 @@
 # Facter-schema
 
-This README describes the facter-schema package, which provides a Twirp RPC service for Facter.
+This README describes the facter-schema package, which provides a protobuf schema for Facter.
 
-The package defines the messages and services used by Facter to send or export the inventory of facts for a host.
+The package defines the messages used by Facter to export the inventory of facts for a host.
 
 ## Buf
 

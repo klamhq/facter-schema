@@ -27,6 +27,7 @@
     - [Identifier](#klamhq-rpc-facter-v1-Identifier)
     - [Interface](#klamhq-rpc-facter-v1-Interface)
     - [InventoryRequest](#klamhq-rpc-facter-v1-InventoryRequest)
+    - [InventoryResponse](#klamhq-rpc-facter-v1-InventoryResponse)
     - [Ip](#klamhq-rpc-facter-v1-Ip)
     - [IpPort](#klamhq-rpc-facter-v1-IpPort)
     - [Kernel](#klamhq-rpc-facter-v1-Kernel)
@@ -50,6 +51,8 @@
     - [IPVersion](#klamhq-rpc-facter-v1-IPVersion)
     - [Protocol](#klamhq-rpc-facter-v1-Protocol)
     - [State](#klamhq-rpc-facter-v1-State)
+  
+    - [FactGrpcService](#klamhq-rpc-facter-v1-FactGrpcService)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -544,6 +547,21 @@ Represents the inventory of a host, which can be either full or delta.
 
 
 
+<a name="klamhq-rpc-facter-v1-InventoryResponse"></a>
+
+### InventoryResponse
+Response message for gRPC services.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  | Response message text. |
+
+
+
+
+
+
 <a name="klamhq-rpc-facter-v1-Ip"></a>
 
 ### Ip
@@ -951,6 +969,18 @@ Connection state enum.
  
 
  
+
+
+<a name="klamhq-rpc-facter-v1-FactGrpcService"></a>
+
+### FactGrpcService
+gRPC service definition for sending host information.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Inventory | [InventoryRequest](#klamhq-rpc-facter-v1-InventoryRequest) | [InventoryResponse](#klamhq-rpc-facter-v1-InventoryResponse) | Sends the Inventory message and receives a Response.
+
+* Sends the Inventory message and receives a Response. |
 
  
 
