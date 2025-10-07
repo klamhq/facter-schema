@@ -3,8 +3,10 @@
 
 ## Table of Contents
 
-- [proto/klamhq/rpc/facter/v1/service.proto](#proto_klamhq_rpc_facter_v1_service-proto)
+- [klamhq/rpc/facter/v1/service.proto](#klamhq_rpc_facter_v1_service-proto)
     - [Application](#klamhq-rpc-facter-v1-Application)
+    - [Cfg](#klamhq-rpc-facter-v1-Cfg)
+    - [ComplianceReport](#klamhq-rpc-facter-v1-ComplianceReport)
     - [ConnectionState](#klamhq-rpc-facter-v1-ConnectionState)
     - [ContainerMounts](#klamhq-rpc-facter-v1-ContainerMounts)
     - [ContainerNetworks](#klamhq-rpc-facter-v1-ContainerNetworks)
@@ -32,14 +34,19 @@
     - [IpPort](#klamhq-rpc-facter-v1-IpPort)
     - [Kernel](#klamhq-rpc-facter-v1-Kernel)
     - [KnownHost](#klamhq-rpc-facter-v1-KnownHost)
+    - [Logger](#klamhq-rpc-facter-v1-Logger)
+    - [MatchedVuln](#klamhq-rpc-facter-v1-MatchedVuln)
     - [Memory](#klamhq-rpc-facter-v1-Memory)
     - [Metadata](#klamhq-rpc-facter-v1-Metadata)
     - [Network](#klamhq-rpc-facter-v1-Network)
     - [Os](#klamhq-rpc-facter-v1-Os)
     - [Package](#klamhq-rpc-facter-v1-Package)
+    - [PackageVulnMatch](#klamhq-rpc-facter-v1-PackageVulnMatch)
     - [Platform](#klamhq-rpc-facter-v1-Platform)
     - [Process](#klamhq-rpc-facter-v1-Process)
     - [Proxy](#klamhq-rpc-facter-v1-Proxy)
+    - [RuleCheckResult](#klamhq-rpc-facter-v1-RuleCheckResult)
+    - [Score](#klamhq-rpc-facter-v1-Score)
     - [Session](#klamhq-rpc-facter-v1-Session)
     - [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess)
     - [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo)
@@ -47,6 +54,7 @@
     - [SystemdService](#klamhq-rpc-facter-v1-SystemdService)
     - [User](#klamhq-rpc-facter-v1-User)
     - [Virtualization](#klamhq-rpc-facter-v1-Virtualization)
+    - [VulnerabilityReport](#klamhq-rpc-facter-v1-VulnerabilityReport)
   
     - [IPVersion](#klamhq-rpc-facter-v1-IPVersion)
     - [Protocol](#klamhq-rpc-facter-v1-Protocol)
@@ -58,10 +66,10 @@
 
 
 
-<a name="proto_klamhq_rpc_facter_v1_service-proto"></a>
+<a name="klamhq_rpc_facter_v1_service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## proto/klamhq/rpc/facter/v1/service.proto
+## klamhq/rpc/facter/v1/service.proto
 
 
 
@@ -74,6 +82,34 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | docker | [Docker](#klamhq-rpc-facter-v1-Docker) |  |  |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-Cfg"></a>
+
+### Cfg
+Configuration message (reserved).
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-ComplianceReport"></a>
+
+### ComplianceReport
+Represents a compliance report.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| score | [Score](#klamhq-rpc-facter-v1-Score) |  | Overall compliance score. |
+| profile | [string](#string) |  | Compliance profile used. |
+| rule_results | [RuleCheckResult](#klamhq-rpc-facter-v1-RuleCheckResult) | repeated | List of rule check results. |
+| updated_at | [string](#string) |  | Last update date of the compliance information. |
 
 
 
@@ -491,6 +527,8 @@ Represents the inventory of a host.
 | systemd_service | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd service information. |
 | known_host | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts information. |
 | processes | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes running on the host. |
+| vulnerability_report | [VulnerabilityReport](#klamhq-rpc-facter-v1-VulnerabilityReport) |  | Match reports of vulnerabilities and packages. |
+| compliance_report | [ComplianceReport](#klamhq-rpc-facter-v1-ComplianceReport) |  | Compliance report. |
 | created_at | [string](#string) |  | Creation date of the inventory. |
 
 
@@ -629,6 +667,35 @@ Known hosts information.
 
 
 
+<a name="klamhq-rpc-facter-v1-Logger"></a>
+
+### Logger
+Empty logger message (reserved).
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-MatchedVuln"></a>
+
+### MatchedVuln
+Vulnerability details.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| vulnerability_id | [string](#string) |  | Vulnerability ID. |
+| severity | [string](#string) |  | Vulnerability severity. |
+| title | [string](#string) |  | Vulnerability title. |
+| description | [string](#string) |  | Vulnerability description. |
+| fixed_version | [string](#string) |  | Version where the vulnerability is fixed. |
+
+
+
+
+
+
 <a name="klamhq-rpc-facter-v1-Memory"></a>
 
 ### Memory
@@ -722,6 +789,24 @@ Package details.
 
 
 
+<a name="klamhq-rpc-facter-v1-PackageVulnMatch"></a>
+
+### PackageVulnMatch
+Package vulnerability match information.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| package_name | [string](#string) |  | Name of the vulnerable package. |
+| installed_version | [string](#string) |  | Installed version of the package. |
+| vulnerabilities | [MatchedVuln](#klamhq-rpc-facter-v1-MatchedVuln) | repeated | List of matched vulnerabilities. |
+| matched | [bool](#bool) |  | Whether a match was found. |
+
+
+
+
+
+
 <a name="klamhq-rpc-facter-v1-Platform"></a>
 
 ### Platform
@@ -779,6 +864,43 @@ Proxy settings.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ip | [Ip](#klamhq-rpc-facter-v1-Ip) |  | Proxy IP. |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-RuleCheckResult"></a>
+
+### RuleCheckResult
+Represents the result of a rule check.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Unique identifier for the rule. |
+| severity | [string](#string) |  | Severity of the rule (e.g., low, medium, high). |
+| title | [string](#string) |  | Title of the rule. |
+| description | [string](#string) |  | Description of the rule. |
+| result | [string](#string) |  | Result of the rule check (e.g., pass, fail). |
+| fix | [string](#string) |  | Suggested fix for the rule, if applicable. |
+| updated_at | [string](#string) |  | Last update date of the rule check information. |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-Score"></a>
+
+### Score
+Represents a compliance score.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| maximum | [string](#string) |  | Maximum possible score. |
+| value | [string](#string) |  | Numerical score value. |
 
 
 
@@ -921,6 +1043,21 @@ Virtualization details.
 | ----- | ---- | ----- | ----------- |
 | system | [string](#string) |  | Virtualization system. |
 | role | [string](#string) |  | Virtualization role (host/guest). |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-VulnerabilityReport"></a>
+
+### VulnerabilityReport
+Report containing all vulnerability matches.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| matches | [PackageVulnMatch](#klamhq-rpc-facter-v1-PackageVulnMatch) | repeated | List of package vulnerability matches. |
 
 
 
