@@ -1,6 +1,7 @@
 
 dependencies:
 	go install github.com/bufbuild/buf/cmd/buf@v1.57.2
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 gen:
 	# Auto-generate code

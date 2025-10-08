@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-- [proto/klamhq/rpc/facter/v1/service.proto](#proto_klamhq_rpc_facter_v1_service-proto)
+- [klamhq/rpc/facter/v1/service.proto](#klamhq_rpc_facter_v1_service-proto)
     - [Application](#klamhq-rpc-facter-v1-Application)
     - [Cfg](#klamhq-rpc-facter-v1-Cfg)
     - [ComplianceReport](#klamhq-rpc-facter-v1-ComplianceReport)
@@ -66,10 +66,10 @@
 
 
 
-<a name="proto_klamhq_rpc_facter_v1_service-proto"></a>
+<a name="klamhq_rpc_facter_v1_service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## proto/klamhq/rpc/facter/v1/service.proto
+## klamhq/rpc/facter/v1/service.proto
 
 
 

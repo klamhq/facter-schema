@@ -1,6 +1,6 @@
 # Facter-schema
 
-This README describes the facter-schema package, which provides a protobuf schema for Facter and `FactGrpcService` Twirpc service for sending protobuf over grpc to an api interface which implement this.
+This README describes the facter-schema package, which provides a protobuf schema for Facter and `FactGrpcService` service for sending protobuf over grpc to an api interface which implement this.
 
 The package defines the messages used by Facter to export the inventory of facts for a host.
 
