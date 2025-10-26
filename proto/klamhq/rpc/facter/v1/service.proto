@@ -2,8 +2,6 @@ syntax = 'proto3';
 
 package klamhq.rpc.facter.v1;
 
-import "google/protobuf/struct.proto";
-
 option go_package = "github.com/klamhq/facter-schema/proto/rpc/facter/v1;facterv1";
 
 /**
@@ -532,6 +530,11 @@ message AuditRecord {
   int64 created_at = 5;
   bool matched = 6;
   string category = 7;
+  string severity = 8;
+  string seed = 9;
+  string seed_property = 10;
+  string seed_value = 11;
+  bool compliant = 12;
 }
 
 /**
@@ -558,8 +561,8 @@ message CheckRuleQuery {
  */
 message CheckRuleResult {
   string rule_id = 1;
-  repeated google.protobuf.Struct rows = 2;
-  string error = 3;
+  string error = 2;
+  repeated string rows_json = 3; // JSON strings instead of Struct
 }
 
 /**

@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-- [klamhq/rpc/facter/v1/service.proto](#klamhq_rpc_facter_v1_service-proto)
+- [proto/klamhq/rpc/facter/v1/service.proto](#proto_klamhq_rpc_facter_v1_service-proto)
     - [Application](#klamhq-rpc-facter-v1-Application)
     - [AuditRecord](#klamhq-rpc-facter-v1-AuditRecord)
     - [AuditRecordRequest](#klamhq-rpc-facter-v1-AuditRecordRequest)
@@ -73,10 +73,10 @@
 
 
 
-<a name="klamhq_rpc_facter_v1_service-proto"></a>
+<a name="proto_klamhq_rpc_facter_v1_service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## klamhq/rpc/facter/v1/service.proto
+## proto/klamhq/rpc/facter/v1/service.proto
 
 
 
@@ -110,6 +110,11 @@ Represents the rule executed and matched by rule engine
 | created_at | [int64](#int64) |  |  |
 | matched | [bool](#bool) |  |  |
 | category | [string](#string) |  |  |
+| severity | [string](#string) |  |  |
+| seed | [string](#string) |  |  |
+| seed_property | [string](#string) |  |  |
+| seed_value | [string](#string) |  |  |
+| compliant | [bool](#bool) |  |  |
 
 
 
@@ -181,8 +186,8 @@ Represents the results of the cypher query
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | rule_id | [string](#string) |  |  |
-| rows | [google.protobuf.Struct](#google-protobuf-Struct) | repeated |  |
 | error | [string](#string) |  |  |
+| rows_json | [string](#string) | repeated | JSON strings instead of Struct |
 
 
 
