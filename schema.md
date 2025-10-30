@@ -3,9 +3,16 @@
 
 ## Table of Contents
 
-- [klamhq/rpc/facter/v1/service.proto](#klamhq_rpc_facter_v1_service-proto)
+- [proto/klamhq/rpc/facter/v1/service.proto](#proto_klamhq_rpc_facter_v1_service-proto)
     - [Application](#klamhq-rpc-facter-v1-Application)
+    - [AuditRecord](#klamhq-rpc-facter-v1-AuditRecord)
+    - [AuditRecordRequest](#klamhq-rpc-facter-v1-AuditRecordRequest)
+    - [AuditRecordResponse](#klamhq-rpc-facter-v1-AuditRecordResponse)
     - [Cfg](#klamhq-rpc-facter-v1-Cfg)
+    - [CheckRuleQuery](#klamhq-rpc-facter-v1-CheckRuleQuery)
+    - [CheckRuleResult](#klamhq-rpc-facter-v1-CheckRuleResult)
+    - [CheckRulesRequest](#klamhq-rpc-facter-v1-CheckRulesRequest)
+    - [CheckRulesResponse](#klamhq-rpc-facter-v1-CheckRulesResponse)
     - [ComplianceReport](#klamhq-rpc-facter-v1-ComplianceReport)
     - [ConnectionState](#klamhq-rpc-facter-v1-ConnectionState)
     - [ContainerMounts](#klamhq-rpc-facter-v1-ContainerMounts)
@@ -66,10 +73,10 @@
 
 
 
-<a name="klamhq_rpc_facter_v1_service-proto"></a>
+<a name="proto_klamhq_rpc_facter_v1_service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## klamhq/rpc/facter/v1/service.proto
+## proto/klamhq/rpc/facter/v1/service.proto
 
 
 
@@ -88,10 +95,129 @@
 
 
 
+<a name="klamhq-rpc-facter-v1-AuditRecord"></a>
+
+### AuditRecord
+Represents the rule executed and matched by rule engine
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| rule_id | [string](#string) |  |  |
+| name | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| evidence | [string](#string) |  |  |
+| created_at | [int64](#int64) |  |  |
+| matched | [bool](#bool) |  |  |
+| category | [string](#string) |  |  |
+| severity | [string](#string) |  |  |
+| seed | [string](#string) |  |  |
+| seed_property | [string](#string) |  |  |
+| seed_value | [string](#string) |  |  |
+| compliant | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-AuditRecordRequest"></a>
+
+### AuditRecordRequest
+Represents the rule executed and matched by rule engine
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| audit_record | [AuditRecord](#klamhq-rpc-facter-v1-AuditRecord) | repeated |  |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-AuditRecordResponse"></a>
+
+### AuditRecordResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message | [string](#string) |  | Response message text. |
+
+
+
+
+
+
 <a name="klamhq-rpc-facter-v1-Cfg"></a>
 
 ### Cfg
 Configuration message (reserved).
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-CheckRuleQuery"></a>
+
+### CheckRuleQuery
+Represents the cypher templates and the rules to be executed
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| cypher | [string](#string) |  |  |
+| rule_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-CheckRuleResult"></a>
+
+### CheckRuleResult
+Represents the results of the cypher query
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| rule_id | [string](#string) |  |  |
+| error | [string](#string) |  |  |
+| rows_json | [string](#string) | repeated | JSON strings instead of Struct |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-CheckRulesRequest"></a>
+
+### CheckRulesRequest
+Represents all cypher rules to be checked
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| queries | [CheckRuleQuery](#klamhq-rpc-facter-v1-CheckRuleQuery) | repeated |  |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-CheckRulesResponse"></a>
+
+### CheckRulesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| results | [CheckRuleResult](#klamhq-rpc-facter-v1-CheckRuleResult) | repeated |  |
 
 
 
@@ -588,7 +714,7 @@ Represents the inventory of a host, which can be either full or delta.
 <a name="klamhq-rpc-facter-v1-InventoryResponse"></a>
 
 ### InventoryResponse
-Response message for gRPC services.
+Response message for Inventory services.
 
 
 | Field | Type | Label | Description |
@@ -1111,13 +1237,15 @@ Connection state enum.
 <a name="klamhq-rpc-facter-v1-FactGrpcService"></a>
 
 ### FactGrpcService
-gRPC service definition for sending host information.
+gRPC service definition.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Inventory | [InventoryRequest](#klamhq-rpc-facter-v1-InventoryRequest) | [InventoryResponse](#klamhq-rpc-facter-v1-InventoryResponse) | Sends the Inventory message and receives a Response.
 
 * Sends the Inventory message and receives a Response. |
+| AuditRecord | [AuditRecordRequest](#klamhq-rpc-facter-v1-AuditRecordRequest) | [AuditRecordResponse](#klamhq-rpc-facter-v1-AuditRecordResponse) | Send the audit record request from rule engine. |
+| CheckRules | [CheckRulesRequest](#klamhq-rpc-facter-v1-CheckRulesRequest) | [CheckRulesResponse](#klamhq-rpc-facter-v1-CheckRulesResponse) | Send cypher audit query and return result. |
 
  
 
