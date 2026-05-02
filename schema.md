@@ -5,7 +5,6 @@
 
 - [klamhq/rpc/facter/v1/service.proto](#klamhq_rpc_facter_v1_service-proto)
     - [Application](#klamhq-rpc-facter-v1-Application)
-    - [AuditRecord](#klamhq-rpc-facter-v1-AuditRecord)
     - [Cfg](#klamhq-rpc-facter-v1-Cfg)
     - [CheckRuleQuery](#klamhq-rpc-facter-v1-CheckRuleQuery)
     - [CheckRuleResult](#klamhq-rpc-facter-v1-CheckRuleResult)
@@ -87,32 +86,6 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | docker | [Docker](#klamhq-rpc-facter-v1-Docker) |  |  |
-
-
-
-
-
-
-<a name="klamhq-rpc-facter-v1-AuditRecord"></a>
-
-### AuditRecord
-Represents the rule executed and matched by rule engine
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| rule_id | [string](#string) |  |  |
-| name | [string](#string) |  |  |
-| description | [string](#string) |  |  |
-| evidence | [string](#string) |  |  |
-| created_at | [int64](#int64) |  |  |
-| matched | [bool](#bool) |  |  |
-| category | [string](#string) |  |  |
-| severity | [string](#string) |  |  |
-| seed | [string](#string) |  |  |
-| seed_property | [string](#string) |  |  |
-| seed_value | [string](#string) |  |  |
-| compliant | [bool](#bool) |  |  |
 
 
 

@@ -520,24 +520,6 @@ message InventoryResponse {
 }
 
 /**
- * Represents the rule executed and matched by rule engine
- */
-message AuditRecord {
-  string rule_id = 1;
-  string name = 2;
-  string description = 3;
-  string evidence = 4;
-  int64 created_at = 5;
-  bool matched = 6;
-  string category = 7;
-  string severity = 8;
-  string seed = 9;
-  string seed_property = 10;
-  string seed_value = 11;
-  bool compliant = 12;
-}
-
-/**
  * Represents the cypher templates and the rules to be executed
  */
 message CheckRuleQuery {
