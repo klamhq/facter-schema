@@ -538,17 +538,6 @@ message AuditRecord {
 }
 
 /**
- * Represents the rule executed and matched by rule engine
- */
-message AuditRecordRequest {
-  repeated AuditRecord audit_record = 1;
-}
-
-message AuditRecordResponse {
-  string message = 1; /** Response message text. */
-}
-
-/**
  * Represents the cypher templates and the rules to be executed
  */
 message CheckRuleQuery {
@@ -582,6 +571,5 @@ message CheckRulesResponse {
 service FactGrpcService {
   /** Sends the Inventory message and receives a Response. */
   rpc Inventory(InventoryRequest) returns (InventoryResponse); /** Sends the Inventory message and receives a Response. */
-  rpc AuditRecord(AuditRecordRequest) returns (AuditRecordResponse); /**Send the audit record request from rule engine. */
   rpc CheckRules(CheckRulesRequest) returns (CheckRulesResponse); /**Send cypher audit query and return result. */
 }
