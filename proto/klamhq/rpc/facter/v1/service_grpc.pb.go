@@ -19,9 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FactGrpcService_Inventory_FullMethodName   = "/klamhq.rpc.facter.v1.FactGrpcService/Inventory"
-	FactGrpcService_AuditRecord_FullMethodName = "/klamhq.rpc.facter.v1.FactGrpcService/AuditRecord"
-	FactGrpcService_CheckRules_FullMethodName  = "/klamhq.rpc.facter.v1.FactGrpcService/CheckRules"
+	FactGrpcService_Inventory_FullMethodName  = "/klamhq.rpc.facter.v1.FactGrpcService/Inventory"
+	FactGrpcService_CheckRules_FullMethodName = "/klamhq.rpc.facter.v1.FactGrpcService/CheckRules"
 )
 
 // FactGrpcServiceClient is the client API for FactGrpcService service.
@@ -33,7 +32,6 @@ const (
 type FactGrpcServiceClient interface {
 	// * Sends the Inventory message and receives a Response.
 	Inventory(ctx context.Context, in *InventoryRequest, opts ...grpc.CallOption) (*InventoryResponse, error)
-	AuditRecord(ctx context.Context, in *AuditRecordRequest, opts ...grpc.CallOption) (*AuditRecordResponse, error)
 	CheckRules(ctx context.Context, in *CheckRulesRequest, opts ...grpc.CallOption) (*CheckRulesResponse, error)
 }
 
@@ -49,16 +47,6 @@ func (c *factGrpcServiceClient) Inventory(ctx context.Context, in *InventoryRequ
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(InventoryResponse)
 	err := c.cc.Invoke(ctx, FactGrpcService_Inventory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *factGrpcServiceClient) AuditRecord(ctx context.Context, in *AuditRecordRequest, opts ...grpc.CallOption) (*AuditRecordResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AuditRecordResponse)
-	err := c.cc.Invoke(ctx, FactGrpcService_AuditRecord_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +72,6 @@ func (c *factGrpcServiceClient) CheckRules(ctx context.Context, in *CheckRulesRe
 type FactGrpcServiceServer interface {
 	// * Sends the Inventory message and receives a Response.
 	Inventory(context.Context, *InventoryRequest) (*InventoryResponse, error)
-	AuditRecord(context.Context, *AuditRecordRequest) (*AuditRecordResponse, error)
 	CheckRules(context.Context, *CheckRulesRequest) (*CheckRulesResponse, error)
 	mustEmbedUnimplementedFactGrpcServiceServer()
 }
@@ -98,9 +85,6 @@ type UnimplementedFactGrpcServiceServer struct{}
 
 func (UnimplementedFactGrpcServiceServer) Inventory(context.Context, *InventoryRequest) (*InventoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Inventory not implemented")
-}
-func (UnimplementedFactGrpcServiceServer) AuditRecord(context.Context, *AuditRecordRequest) (*AuditRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AuditRecord not implemented")
 }
 func (UnimplementedFactGrpcServiceServer) CheckRules(context.Context, *CheckRulesRequest) (*CheckRulesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckRules not implemented")
@@ -144,24 +128,6 @@ func _FactGrpcService_Inventory_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FactGrpcService_AuditRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuditRecordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FactGrpcServiceServer).AuditRecord(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FactGrpcService_AuditRecord_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FactGrpcServiceServer).AuditRecord(ctx, req.(*AuditRecordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _FactGrpcService_CheckRules_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CheckRulesRequest)
 	if err := dec(in); err != nil {
@@ -190,10 +156,6 @@ var FactGrpcService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Inventory",
 			Handler:    _FactGrpcService_Inventory_Handler,
-		},
-		{
-			MethodName: "AuditRecord",
-			Handler:    _FactGrpcService_AuditRecord_Handler,
 		},
 		{
 			MethodName: "CheckRules",
