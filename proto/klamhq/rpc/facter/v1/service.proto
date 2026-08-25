@@ -49,13 +49,40 @@ message HostDeltaInventory {
   repeated Process processes_removed = 20; /** List of processes removed from the host. */
 }
 
+enum SourceType {
+  SOURCE_TYPE_UNSPECIFIED = 0; /** Unspecified source type. */
+  SOURCE_TYPE_FULL = 1; /** Full snapshot of a host inventory. */
+  SOURCE_TYPE_DELTA = 2; /** Delta update applied to a previous inventory. */
+}
+
 /**
- * Represents the inventory of a host, which can be either full or delta.
+ * Represents the inventory of a host, which can be either full, delta or revision-based.
  */
 message InventoryRequest {
   oneof content {
     HostInventory full = 1; /** Full inventory of the host. */
     HostDeltaInventory delta = 2; /** Delta inventory of the host. */
+    InventoryRevisionEnvelope revision = 3; /** Append-only revision envelope. */
+  }
+}
+
+/**
+ * Revision metadata for a host inventory update.
+ */
+message InventoryRevisionEnvelope {
+  string revision_id = 1; /** Unique revision identifier. */
+  uint64 sequence = 2; /** Monotonic sequence number for the host. */
+  string previous_revision_id = 3; /** Previous revision identifier. */
+  uint64 previous_sequence = 4; /** Previous revision sequence. */
+  string created_at = 5; /** Revision creation timestamp. */
+  string agent_id = 6; /** Agent identifier that generated the revision. */
+  string hostname = 7; /** Hostname associated with the revision. */
+  string machine_id = 8; /** Machine identifier associated with the revision. */
+  SourceType source_type = 9; /** Payload type for the revision. */
+  string state_hash = 10; /** Hash used to validate the inventory state. */
+  oneof payload {
+    HostInventory full = 11; /** Full inventory payload. */
+    HostDeltaInventory delta = 12; /** Delta inventory payload. */
   }
 }
 

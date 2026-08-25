@@ -34,6 +34,7 @@
     - [Interface](#klamhq-rpc-facter-v1-Interface)
     - [InventoryRequest](#klamhq-rpc-facter-v1-InventoryRequest)
     - [InventoryResponse](#klamhq-rpc-facter-v1-InventoryResponse)
+    - [InventoryRevisionEnvelope](#klamhq-rpc-facter-v1-InventoryRevisionEnvelope)
     - [Ip](#klamhq-rpc-facter-v1-Ip)
     - [IpPort](#klamhq-rpc-facter-v1-IpPort)
     - [Kernel](#klamhq-rpc-facter-v1-Kernel)
@@ -62,6 +63,7 @@
   
     - [IPVersion](#klamhq-rpc-facter-v1-IPVersion)
     - [Protocol](#klamhq-rpc-facter-v1-Protocol)
+    - [SourceType](#klamhq-rpc-facter-v1-SourceType)
     - [State](#klamhq-rpc-facter-v1-State)
   
     - [FactGrpcService](#klamhq-rpc-facter-v1-FactGrpcService)
@@ -639,13 +641,14 @@ Network interface.
 <a name="klamhq-rpc-facter-v1-InventoryRequest"></a>
 
 ### InventoryRequest
-Represents the inventory of a host, which can be either full or delta.
+Represents the inventory of a host, which can be either full, delta or revision-based.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | full | [HostInventory](#klamhq-rpc-facter-v1-HostInventory) |  | Full inventory of the host. |
 | delta | [HostDeltaInventory](#klamhq-rpc-facter-v1-HostDeltaInventory) |  | Delta inventory of the host. |
+| revision | [InventoryRevisionEnvelope](#klamhq-rpc-facter-v1-InventoryRevisionEnvelope) |  | Append-only revision envelope. |
 
 
 
@@ -661,6 +664,32 @@ Response message for Inventory services.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | message | [string](#string) |  | Response message text. |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-InventoryRevisionEnvelope"></a>
+
+### InventoryRevisionEnvelope
+Revision metadata for a host inventory update.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| revision_id | [string](#string) |  | Unique revision identifier. |
+| sequence | [uint64](#uint64) |  | Monotonic sequence number for the host. |
+| previous_revision_id | [string](#string) |  | Previous revision identifier. |
+| previous_sequence | [uint64](#uint64) |  | Previous revision sequence. |
+| created_at | [string](#string) |  | Revision creation timestamp. |
+| agent_id | [string](#string) |  | Agent identifier that generated the revision. |
+| hostname | [string](#string) |  | Hostname associated with the revision. |
+| machine_id | [string](#string) |  | Machine identifier associated with the revision. |
+| source_type | [SourceType](#klamhq-rpc-facter-v1-SourceType) |  | Payload type for the revision. |
+| state_hash | [string](#string) |  | Hash used to validate the inventory state. |
+| full | [HostInventory](#klamhq-rpc-facter-v1-HostInventory) |  | Full inventory payload. |
+| delta | [HostDeltaInventory](#klamhq-rpc-facter-v1-HostDeltaInventory) |  | Delta inventory payload. |
 
 
 
@@ -1155,6 +1184,19 @@ Connection protocol enum.
 | ---- | ------ | ----------- |
 | PROTOCOL_UDP_UNSPECIFIED | 0 | UDP protocol. |
 | PROTOCOL_TCP | 1 | TCP protocol. |
+
+
+
+<a name="klamhq-rpc-facter-v1-SourceType"></a>
+
+### SourceType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| SOURCE_TYPE_UNSPECIFIED | 0 | Unspecified source type. |
+| SOURCE_TYPE_FULL | 1 | Full snapshot of a host inventory. |
+| SOURCE_TYPE_DELTA | 2 | Delta update applied to a previous inventory. |
 
 
 
