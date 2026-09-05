@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-- [klamhq/rpc/facter/v1/service.proto](#klamhq_rpc_facter_v1_service-proto)
+- [proto/klamhq/rpc/facter/v1/service.proto](#proto_klamhq_rpc_facter_v1_service-proto)
     - [Application](#klamhq-rpc-facter-v1-Application)
     - [Cfg](#klamhq-rpc-facter-v1-Cfg)
     - [CheckRuleQuery](#klamhq-rpc-facter-v1-CheckRuleQuery)
@@ -11,6 +11,7 @@
     - [CheckRulesRequest](#klamhq-rpc-facter-v1-CheckRulesRequest)
     - [CheckRulesResponse](#klamhq-rpc-facter-v1-CheckRulesResponse)
     - [ComplianceReport](#klamhq-rpc-facter-v1-ComplianceReport)
+    - [ComplianceReportDelta](#klamhq-rpc-facter-v1-ComplianceReportDelta)
     - [ConnectionState](#klamhq-rpc-facter-v1-ConnectionState)
     - [ContainerMounts](#klamhq-rpc-facter-v1-ContainerMounts)
     - [ContainerNetworks](#klamhq-rpc-facter-v1-ContainerNetworks)
@@ -22,6 +23,7 @@
     - [DiskPartition](#klamhq-rpc-facter-v1-DiskPartition)
     - [DnsInfo](#klamhq-rpc-facter-v1-DnsInfo)
     - [Docker](#klamhq-rpc-facter-v1-Docker)
+    - [DockerDelta](#klamhq-rpc-facter-v1-DockerDelta)
     - [DockerNetworks](#klamhq-rpc-facter-v1-DockerNetworks)
     - [ExternalIp](#klamhq-rpc-facter-v1-ExternalIp)
     - [Firewall](#klamhq-rpc-facter-v1-Firewall)
@@ -59,6 +61,7 @@
     - [SystemdService](#klamhq-rpc-facter-v1-SystemdService)
     - [User](#klamhq-rpc-facter-v1-User)
     - [Virtualization](#klamhq-rpc-facter-v1-Virtualization)
+    - [VulnerabilityDelta](#klamhq-rpc-facter-v1-VulnerabilityDelta)
     - [VulnerabilityReport](#klamhq-rpc-facter-v1-VulnerabilityReport)
   
     - [IPVersion](#klamhq-rpc-facter-v1-IPVersion)
@@ -72,10 +75,10 @@
 
 
 
-<a name="klamhq_rpc_facter_v1_service-proto"></a>
+<a name="proto_klamhq_rpc_facter_v1_service-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## klamhq/rpc/facter/v1/service.proto
+## proto/klamhq/rpc/facter/v1/service.proto
 
 
 
@@ -179,6 +182,25 @@ Represents a compliance report.
 | profile | [string](#string) |  | Compliance profile used. |
 | rule_results | [RuleCheckResult](#klamhq-rpc-facter-v1-RuleCheckResult) | repeated | List of rule check results. |
 | updated_at | [string](#string) |  | Last update date of the compliance information. |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-ComplianceReportDelta"></a>
+
+### ComplianceReportDelta
+Represents the delta of a compliance report.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| rules_added | [RuleCheckResult](#klamhq-rpc-facter-v1-RuleCheckResult) | repeated | Rules added. |
+| rules_removed | [RuleCheckResult](#klamhq-rpc-facter-v1-RuleCheckResult) | repeated | Rules removed. |
+| rules_changed | [RuleCheckResult](#klamhq-rpc-facter-v1-RuleCheckResult) | repeated | Rules changed. |
+| score_delta | [Score](#klamhq-rpc-facter-v1-Score) |  | Score delta. |
+| profile | [string](#string) |  | Compliance profile used. |
 
 
 
@@ -404,6 +426,29 @@ DNS information.
 
 
 
+<a name="klamhq-rpc-facter-v1-DockerDelta"></a>
+
+### DockerDelta
+Docker delta containing granular changes to containers, images, and networks.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| containers_added | [Containers](#klamhq-rpc-facter-v1-Containers) | repeated | Docker containers added. |
+| containers_removed | [Containers](#klamhq-rpc-facter-v1-Containers) | repeated | Docker containers removed. |
+| containers_changed | [Containers](#klamhq-rpc-facter-v1-Containers) | repeated | Docker containers changed. |
+| images_added | [ContainersImages](#klamhq-rpc-facter-v1-ContainersImages) | repeated | Docker images added. |
+| images_removed | [ContainersImages](#klamhq-rpc-facter-v1-ContainersImages) | repeated | Docker images removed. |
+| images_changed | [ContainersImages](#klamhq-rpc-facter-v1-ContainersImages) | repeated | Docker images changed. |
+| networks_added | [DockerNetworks](#klamhq-rpc-facter-v1-DockerNetworks) | repeated | Docker networks added. |
+| networks_removed | [DockerNetworks](#klamhq-rpc-facter-v1-DockerNetworks) | repeated | Docker networks removed. |
+| networks_changed | [DockerNetworks](#klamhq-rpc-facter-v1-DockerNetworks) | repeated | Docker networks changed. |
+
+
+
+
+
+
 <a name="klamhq-rpc-facter-v1-DockerNetworks"></a>
 
 ### DockerNetworks
@@ -544,7 +589,7 @@ Hardware information.
 <a name="klamhq-rpc-facter-v1-HostDeltaInventory"></a>
 
 ### HostDeltaInventory
-
+Represents the delta inventory of a host, containing only changes since the last inventory.
 
 
 | Field | Type | Label | Description |
@@ -552,23 +597,30 @@ Hardware information.
 | hostname | [string](#string) |  |  |
 | packages_added | [Package](#klamhq-rpc-facter-v1-Package) | repeated | Packages added. |
 | packages_removed | [Package](#klamhq-rpc-facter-v1-Package) | repeated | Packages removed. |
+| packages_changed | [Package](#klamhq-rpc-facter-v1-Package) | repeated | Packages changed. |
 | users_added | [User](#klamhq-rpc-facter-v1-User) | repeated | Users added. |
 | users_removed | [User](#klamhq-rpc-facter-v1-User) | repeated | Users removed. |
-| applications_added | [Application](#klamhq-rpc-facter-v1-Application) | repeated | Applications added. |
-| applications_removed | [Application](#klamhq-rpc-facter-v1-Application) | repeated | Applications removed. |
+| users_changed | [User](#klamhq-rpc-facter-v1-User) | repeated | Users changed. |
+| docker_delta | [DockerDelta](#klamhq-rpc-facter-v1-DockerDelta) |  | Docker application delta with granular container/image/network changes. |
+| vulnerability_delta | [VulnerabilityDelta](#klamhq-rpc-facter-v1-VulnerabilityDelta) |  | Vulnerability report delta with granular changes. |
 | systemdservices_added | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd services added. |
 | systemdservices_removed | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd services removed. |
+| systemdservices_changed | [SystemdService](#klamhq-rpc-facter-v1-SystemdService) | repeated | Systemd services changed. |
 | knownhosts_added | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts added. |
 | knownhosts_removed | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts removed. |
+| knownhosts_changed | [KnownHost](#klamhq-rpc-facter-v1-KnownHost) | repeated | Known hosts changed. |
 | sshkeyaccess_added | [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess) | repeated | SSH key access added. |
 | sshkeyaccess_removed | [SshKeyAccess](#klamhq-rpc-facter-v1-SshKeyAccess) | repeated | SSH key access removed. |
 | updated_at | [string](#string) |  | Last update date of the delta inventory. |
 | sshkeyinfo_added | [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo) | repeated | SSH key info added. |
 | sshkeyinfo_removed | [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo) | repeated | SSH key info removed. |
+| sshkeyinfo_changed | [SshKeyInfo](#klamhq-rpc-facter-v1-SshKeyInfo) | repeated | SSH key info changed. |
 | platform | [Platform](#klamhq-rpc-facter-v1-Platform) |  | Platform details. |
 | network | [Network](#klamhq-rpc-facter-v1-Network) |  | Network information. |
 | processes_added | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes running on the host. |
 | processes_removed | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes removed from the host. |
+| processes_changed | [Process](#klamhq-rpc-facter-v1-Process) | repeated | List of processes changed on the host. |
+| compliance_report_delta | [ComplianceReportDelta](#klamhq-rpc-facter-v1-ComplianceReportDelta) |  | Compliance report delta with granular changes. |
 
 
 
@@ -1088,7 +1140,7 @@ Systemd service information.
 | name | [string](#string) |  | Service name. |
 | description | [string](#string) |  | Service description. |
 | loaded | [string](#string) |  | Loaded state. |
-| active | [string](#string) |  | Active state. |
+| active_state | [string](#string) |  | Active state. |
 | sub_state | [string](#string) |  | Sub-state. |
 | enabled | [bool](#bool) |  | Whether the service is enabled. |
 | pid | [int64](#int64) |  | Process ID. |
@@ -1139,6 +1191,23 @@ Virtualization details.
 | ----- | ---- | ----- | ----------- |
 | system | [string](#string) |  | Virtualization system. |
 | role | [string](#string) |  | Virtualization role (host/guest). |
+
+
+
+
+
+
+<a name="klamhq-rpc-facter-v1-VulnerabilityDelta"></a>
+
+### VulnerabilityDelta
+Vulnerability delta containing granular changes to vulnerability matches.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| matches_added | [PackageVulnMatch](#klamhq-rpc-facter-v1-PackageVulnMatch) | repeated | Vulnerability matches added. |
+| matches_removed | [PackageVulnMatch](#klamhq-rpc-facter-v1-PackageVulnMatch) | repeated | Vulnerability matches removed. |
+| matches_changed | [PackageVulnMatch](#klamhq-rpc-facter-v1-PackageVulnMatch) | repeated | Vulnerability matches changed. |
 
 
 
